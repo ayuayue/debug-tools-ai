@@ -32,4 +32,15 @@ Spring config flow:
 
 Report returned values as Spring runtime Environment resolved values, not as direct file reads.
 
+Code search flow:
+
+1. `search_http_url` for HTTP routes, `search_symbol` for classes/methods, `search_text`/`search_regex`/`search_file` for other lookups
+2. `get_file_problems` for IDE-reported problems in one file
+3. Unknown parameters are silently ignored: use exact parameter names and inspect the raw response shape (`search_http_url` wraps results in `data.items`; the other search tools return `items` directly)
+
+Database flow (read-only):
+
+1. `list_database_connections`, then `list_database_schemas` with `connectionId`
+2. `execute_sql_query` with empty `databaseName` and uppercase Oracle `schemaName`; keep queries bounded
+
 Use `run_and_invoke` for the complete reload → invoke → optional logs/SQL loop. It may start only with an exact `runConfigurationName` and `allowStart=true`, or attach only with an explicit `pid` and `allowAttach=true`.

@@ -65,7 +65,7 @@ debug-tools-ai installation finished
 
 DebugTools AI 只安装 Agent 指令、Skills 和插件元数据，不会安装 IntelliJ IDEA、DebugTools 插件、DebugTools agent 或 MCP Server。
 
-## 三个 Skill
+## 五个 Skill
 
 ### 方法调用
 
@@ -102,6 +102,29 @@ DebugTools AI 只安装 Agent 指令、Skills 和插件元数据，不会安装 
 - “看看当前环境实际生效的 Redis 地址和 active profile。”
 
 特殊注意：这里读取的是 Spring 运行时解析后的值，不是直接读取 `application.yml` 或 `application.properties`。因此结果会包含 profile、环境变量、启动参数等配置源覆盖后的最终值。
+
+### 代码与路由检索
+
+`debug-tools-code-search` 用于按 IDE 索引检索 HTTP 路由、符号、文件、文本与正则匹配，并可读取单个文件的 IDE 检查结果。
+
+适合这类需求：
+
+- “`/orders/check` 这个路由对应哪个类和方法？”
+- “`OrderService` 在哪个文件、哪些行？”
+- “看看这个文件 IDE 报了什么错。”
+
+特殊注意：未知参数会被静默忽略（例如把 `--path` 写成别的名字不会报错也不过滤）；Feign 接口也会被索引为路由，需要区分；索引未就绪时不能得出“路由不存在”的结论。
+
+### 数据库查询（只读）
+
+`debug-tools-database-query` 用于通过 IDE 已配置的数据源执行只读 SQL，查测试/开发库数据时无需另写 JDBC 程序。
+
+适合这类需求：
+
+- “查一下 `DEMO_SCHEMA` 里 `ORDERS` 各状态的条数。”
+- “这个订单在库里是什么状态？”
+
+特殊注意：仅只读——DML 会显示成功但不会提交，PL/SQL 会超时；Oracle schema 名必须大写（`DEMO_SCHEMA`）；造数/清数需要走直连工具。
 
 ## 安装、更新与卸载
 
@@ -179,6 +202,8 @@ Agent：run_and_invoke（必要时显式传 allowStart/runConfigurationName 或 
 - [方法调用 Skill](skills/debug-tools-method-invocation/SKILL.md)
 - [Hotswap Skill](skills/debug-tools-hotswap/SKILL.md)
 - [Spring 配置 Skill](skills/debug-tools-spring-config/SKILL.md)
+- [代码与路由检索 Skill](skills/debug-tools-code-search/SKILL.md)
+- [数据库查询 Skill](skills/debug-tools-database-query/SKILL.md)
 - [压力测试场景](tests/pressure)
 
 ## 校验
