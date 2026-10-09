@@ -15,6 +15,16 @@ This document is the shared workflow source for AI agents using DebugTools throu
 - `read_target_application_logs` - read recent logs from the selected target JVM ring buffer.
 - `get_last_sql_statements` - read recent SQL from the target JVM or the IDEA SQL history fallback.
 - `search_http_url` - query indexed HTTP endpoints as stable JSON metadata.
+- `search_symbol` - look up a symbol name and get its file path with line range.
+- `search_text` - literal text lookup in indexed project files.
+- `search_regex` - regex lookup in indexed project files.
+- `search_file` - file name lookup.
+- `get_file_problems` - IDE-reported problems for one file.
+- `search_ide_actions` - look up IDE actions by name.
+- `get_all_open_file_paths` - files currently open or focused in the IDE.
+- `list_database_connections` - list IDE-managed data sources with their `dbms`.
+- `list_database_schemas` - list schemas of one data source; Oracle schemas are uppercase.
+- `execute_sql_query` - run one read-only SQL statement and return `{resultSetId, text}` with CSV-style text.
 
 `DebugToolsHotswapToolset`:
 
@@ -24,7 +34,7 @@ This document is the shared workflow source for AI agents using DebugTools throu
 - `get_hotswap_operation` - query a HotSwap operation after the initial request timed out or returned an operation id.
 - `run_and_invoke` - orchestrate status, optional explicit start/attach, reload, invocation, and optional logs/SQL verification.
 
-Use `debug-tools-method-invocation` for connection, attach, argument template, ClassLoader recovery, and Java method invocation tasks. Use `debug-tools-hotswap` for run configuration listing, Hotswap startup, and compile/reload tasks. Use `debug-tools-spring-config` when the user asks to read Spring runtime Environment configuration keys from an attached application.
+Use `debug-tools-method-invocation` for connection, attach, argument template, ClassLoader recovery, and Java method invocation tasks. Use `debug-tools-hotswap` for run configuration listing, Hotswap startup, and compile/reload tasks. Use `debug-tools-spring-config` when the user asks to read Spring runtime Environment configuration keys from an attached application. Use `debug-tools-code-search` for route, symbol, file, and IDE-problem lookup through the project index, and `debug-tools-database-query` for read-only SQL through IDE-configured data sources.
 
 ## Standard Method Invocation Flow
 

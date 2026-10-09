@@ -251,6 +251,18 @@ compile_and_reload_modified_files
 get_hotswap_operation             # when an operationId is pending
 ```
 
+Code search skill:
+
+```text
+skills/debug-tools-code-search/SKILL.md
+```
+
+Database query skill:
+
+```text
+skills/debug-tools-database-query/SKILL.md
+```
+
 For a complete loop, use `run_and_invoke`. Starting and attaching are explicit: pass `allowStart=true` with an exact `runConfigurationName`, or `allowAttach=true` with an explicit `pid`.
 
 Details:
@@ -260,6 +272,8 @@ Details:
 - Method invocation skill: [skills/debug-tools-method-invocation/SKILL.md](skills/debug-tools-method-invocation/SKILL.md)
 - Hotswap skill: [skills/debug-tools-hotswap/SKILL.md](skills/debug-tools-hotswap/SKILL.md)
 - Spring config skill: [skills/debug-tools-spring-config/SKILL.md](skills/debug-tools-spring-config/SKILL.md)
+- Code search skill: [skills/debug-tools-code-search/SKILL.md](skills/debug-tools-code-search/SKILL.md)
+- Database query skill: [skills/debug-tools-database-query/SKILL.md](skills/debug-tools-database-query/SKILL.md)
 
 ## Validation
 
