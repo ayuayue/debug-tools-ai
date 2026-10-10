@@ -23,7 +23,7 @@ These tools are called through the DebugTools MCP toolset as a single command st
 ## Workflow
 
 1. `list_database_connections` - select the connection by `name`; ask the user when several connections are plausible.
-2. `list_database_schemas --connectionId <id>` - pick the target schema. Oracle schema names are uppercase (`T7_CESHI`, not `t7_ceshi`).
+2. `list_database_schemas --connectionId <id>` - pick the target schema. Oracle schema names are uppercase (`DEMO_SCHEMA`, not `demo_schema`).
 3. `execute_sql_query --connectionId <id> --databaseName "" --schemaName <SCHEMA> --queryText "SELECT ..."` - the result is `{"resultSetId":"qr_xxx","text":"COL1,COL2\n..."}` where `text` is a CSV-style rendering.
 4. Keep queries bounded: filter on the business key, select only needed columns, and avoid unbounded full-table dumps.
 

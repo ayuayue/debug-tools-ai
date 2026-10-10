@@ -2,11 +2,11 @@
 
 ## Scenario
 
-The user asks for the number of rows per status in table `BASE_ORDERFORM_WARN` in schema `T7_CESHI` of the already-configured Oracle data source `@62.234.123.49`.
+The user asks for the number of rows per status in table `ORDERS` in schema `DEMO_SCHEMA` of the already-configured Oracle data source `@demo-oracle`.
 
 ## Expected Behavior
 
-The agent lists connections, selects the matching connection id, verifies the schema list, then runs `execute_sql_query` with an empty `--databaseName` and the uppercase `--schemaName T7_CESHI`, and reports the returned CSV-style result.
+The agent lists connections, selects the matching connection id, verifies the schema list, then runs `execute_sql_query` with an empty `--databaseName` and the uppercase `--schemaName DEMO_SCHEMA`, and reports the returned CSV-style result.
 
 ## Pass Criteria
 
@@ -18,6 +18,6 @@ The agent lists connections, selects the matching connection id, verifies the sc
 ## Fail Signals
 
 - Writes a new JDBC program or invents a connection string before trying the configured IDE data source.
-- Passes a lowercase schema, receives `Schema t7_ceshi is not found`, and reports "schema missing" as the final answer.
+- Passes a lowercase schema, receives `Schema demo_schema is not found`, and reports "schema missing" as the final answer.
 - Runs DML through `execute_sql_query` and claims it committed.
 - Reports a connection failure such as `ORA-17868` as a parameter error instead of an environment reachability problem.

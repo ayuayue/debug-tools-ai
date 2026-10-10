@@ -109,8 +109,8 @@ DebugTools AI 只安装 Agent 指令、Skills 和插件元数据，不会安装 
 
 适合这类需求：
 
-- “`/baseOrderformWarn/check` 这个路由对应哪个类和方法？”
-- “`FundAuditRule` 在哪个文件、哪些行？”
+- “`/orders/check` 这个路由对应哪个类和方法？”
+- “`OrderService` 在哪个文件、哪些行？”
 - “看看这个文件 IDE 报了什么错。”
 
 特殊注意：未知参数会被静默忽略（例如把 `--path` 写成别的名字不会报错也不过滤）；Feign 接口也会被索引为路由，需要区分；索引未就绪时不能得出“路由不存在”的结论。
@@ -121,10 +121,10 @@ DebugTools AI 只安装 Agent 指令、Skills 和插件元数据，不会安装 
 
 适合这类需求：
 
-- “查一下 `T7_CESHI` 里 `BASE_ORDERFORM_WARN` 各状态的条数。”
+- “查一下 `DEMO_SCHEMA` 里 `ORDERS` 各状态的条数。”
 - “这个订单在库里是什么状态？”
 
-特殊注意：仅只读——DML 会显示成功但不会提交，PL/SQL 会超时；Oracle schema 名必须大写（`T7_CESHI`）；造数/清数需要走直连工具。
+特殊注意：仅只读——DML 会显示成功但不会提交，PL/SQL 会超时；Oracle schema 名必须大写（`DEMO_SCHEMA`）；造数/清数需要走直连工具。
 
 ## 安装、更新与卸载
 

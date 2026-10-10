@@ -2,7 +2,7 @@
 
 ## Scenario
 
-The user asks which code serves the HTTP route `POST /baseOrderformWarn/check` and wants the controller class, method, module, and file location.
+The user asks which code serves the HTTP route `POST /orders/check` and wants the controller class, method, module, and file location.
 
 ## Expected Behavior
 

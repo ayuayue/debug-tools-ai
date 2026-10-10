@@ -46,9 +46,9 @@ These tools are called through the DebugTools MCP toolset, typically as a single
 ## Example
 
 ```text
-search_http_url --path baseOrderformWarn --limit 200
--> POST /baseOrderformWarn/check: BaseOrderformWarnController#check (t6-base)
+search_http_url --path orders --limit 200
+-> POST /orders/check: OrderController#check (order-service)
 
-search_symbol --q BaseOrderformWarnController
--> t6-base/src/main/java/com/cobazaar/controller/BaseOrderformWarnController.java 25-103
+search_symbol --q OrderController
+-> order-service/src/main/java/com/example/order/OrderController.java 25-103
 ```
