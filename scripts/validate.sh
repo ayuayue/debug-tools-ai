@@ -71,6 +71,10 @@ required_files=(
   "skills/debug-tools-spring-config/agents/openai.yaml"
   "skills/debug-tools-spring-config/assets/pluginIcon.png"
   "skills/debug-tools-spring-config/references/http-spring-config.md"
+  "skills/debug-tools-code-search/SKILL.md"
+  "skills/debug-tools-database-query/SKILL.md"
+  "tests/pressure/22-code-search-route-lookup.md"
+  "tests/pressure/23-database-query-readonly.md"
   "skills/debug-tools-method-invocation/assets/pluginIcon.png"
   ".codex-plugin/plugin.json"
   ".claude-plugin/plugin.json"
@@ -137,7 +141,7 @@ bash "$ROOT/scripts/check-release-readiness.sh"
 bash "$ROOT/scripts/smoke-install.sh"
 bash "$ROOT/scripts/doctor.sh"
 
-for skill_file in "$ROOT/skills/debug-tools-method-invocation/SKILL.md" "$ROOT/skills/debug-tools-hotswap/SKILL.md" "$ROOT/skills/debug-tools-spring-config/SKILL.md"; do
+for skill_file in "$ROOT/skills/debug-tools-method-invocation/SKILL.md" "$ROOT/skills/debug-tools-hotswap/SKILL.md" "$ROOT/skills/debug-tools-spring-config/SKILL.md" "$ROOT/skills/debug-tools-code-search/SKILL.md" "$ROOT/skills/debug-tools-database-query/SKILL.md"; do
   if ! grep -q "^---" "$skill_file"; then
     echo "Skill is missing YAML frontmatter: ${skill_file#$ROOT/}" >&2
     exit 1
